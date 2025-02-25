@@ -10,7 +10,7 @@ struct Node *create_Node(int data){
     newNode->next = NULL;
     return newNode;
 }
-struct Node *detect_the_loop(struct Node *head){
+struct Node *detect_to_find_the_first_node_in_the_loop(struct Node *head){
     struct Node *slow = head, *fast = head;
     while(fast != NULL && fast->next != NULL){
         slow = slow->next;
@@ -37,7 +37,7 @@ int main()
    head->next->next ->next = create_Node(10);
      head->next->next ->next->next = create_Node(13);
     head->next->next ->next->next ->next = head->next;
-    struct Node* loopNode = detect_the_loop(head);
+    struct Node* loopNode = detect_to_find_the_first_node_in_the_loop(head);
     if(loopNode){
         printf("First node of loop is: %d\n", loopNode->data);
     }
